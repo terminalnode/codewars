@@ -43,5 +43,13 @@ class TestCount(unittest.TestCase):
         ]
         self.assertEqual(count(chess_board), {3:2, 2:9}, "Should be {3:2, 2:9}.")
 
+    def test_stress_20x20(self):
+        """This test is just designed to measure the efficiency of the algorithm."""
+        chess_board = [
+                [0 for i in range(20)] for j in range(20)
+        ]
+        for i in range(100):
+            self.assertEqual(count(chess_board), {}, "Should be {}.")
+
 if __name__ == '__main__':
     unittest.main()

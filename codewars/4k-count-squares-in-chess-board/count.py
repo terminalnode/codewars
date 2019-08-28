@@ -28,8 +28,9 @@ def count(chessBoard):
     points = list()
 
     for x in range(dimensions - 1):
+        xmaximum = dimensions - x
         for y in range(dimensions - 1):
-            max = min(dimensions - x, dimensions - y)
+            max = min(xmaximum, dimensions - y)
             biggest_square = validate_point(chessBoard, x, y, max)
             if biggest_square != None:
                 for i in range(2, biggest_square + 1):

@@ -15,16 +15,19 @@ public class Bud {
                 return "(" + n + " " + candidate + ")";
             }
         }
-
         return "Nothing";
     }
 
     private static long getDivisorSum(long n) {
-        // Next: Make function break off if result goes above a given value to speed things up.
-        long midway = (long) n / 2 + 1; // We're not going to find any divisors after n/2. +1 is to make sure we round up.
-        long result = 0;
-        for (long i = 1; i < midway; i++) {
-            if (n % i == 0) { result += i; }
+        long result = 1; // All natural numbers are divisible by 1, and testing for 1 messes up our algorithm.
+        for (long divisor = 2; divisor <= Math.sqrt(n); divisor++) {
+            if (n % divisor == 0) {
+                result += divisor;
+                long divisorPair = n / divisor;
+                if (divisorPair != divisor) {
+                    result += divisorPair;
+                }
+            }
         }
         return result;
     }

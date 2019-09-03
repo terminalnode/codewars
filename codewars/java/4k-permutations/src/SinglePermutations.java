@@ -1,3 +1,5 @@
+/* https://www.codewars.com/kata/5254ca2719453dcc0b00027d
+ * For a given string, find all letter combinations that can be produced from that string. */
 import java.util.*;
 
 class Permutations {

@@ -1,3 +1,11 @@
+/* https://www.codewars.com/kata/cure-cancer
+ * Given a char[][], return the coordinates of the cell that's
+ * different from all the other cells. If they're all the same
+ * return int[0]. There will never be more than one cell that's
+ * different from the rest and never less than three rows in the
+ * array.
+ * */
+
 import java.util.Arrays;
 
 class JomoPipi {

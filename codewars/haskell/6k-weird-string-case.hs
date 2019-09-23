@@ -16,4 +16,4 @@ toWeirdCase str = unwords . map (go zero []) $ words str
     go n result (x:xs)
       | even n = go (n + 1) (toUpper x : result) xs
       | otherwise = go (n + 1) (toLower x : result) xs
-    zero = 0 :: Integer -- For avoidinf type inference
+    zero = 0 :: Integer -- For avoiding type inference

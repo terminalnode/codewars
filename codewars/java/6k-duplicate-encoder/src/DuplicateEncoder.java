@@ -1,4 +1,5 @@
-import java.util.stream.IntStream;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Given a string, return another string where each character
@@ -8,23 +9,18 @@ import java.util.stream.IntStream;
  * https://www.codewars.com/kata/duplicate-encoder
  *
  * @author Alexander Rundberg
- * @version 1.0
+ * @version 1.1
  */
 
 public class DuplicateEncoder {
-    static String encode(String word){
-        int[] chars = toIntStream(word)
-                .map(character ->
-                        (int) toIntStream(word)
-                                .filter(c -> c == character)
-                                .count())
-                .map(num -> num == 1 ? '(' : ')')
-                .toArray();
+    static String encode(String word) {
+        final String[] array = word.toLowerCase().split("");
 
-        StringBuilder result = new StringBuilder();
-        for (int c : chars) result.append((char) c);
-        return result.toString();
+        return Stream.of(array)
+                .map(c1 -> Stream.of(array)
+                        .filter(c1::equals)
+                        .count())
+                .map(num -> num == 1 ? "(" : ")")
+                .collect(Collectors.joining());
     }
-
-    private static IntStream toIntStream(String word) { return word.toLowerCase().chars(); }
 }

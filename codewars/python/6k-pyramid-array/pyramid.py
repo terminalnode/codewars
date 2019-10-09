@@ -11,3 +11,7 @@ def pyramid(n):
     for i in range(1, n + 1):
         result.append( [1 for j in range(i)] )
     return result
+
+# Huh, apparently you can also do list * n to get
+# a repetition of a list. Lots of solutions simply
+# did [ [1]*n for i in range(1, n+1) ].

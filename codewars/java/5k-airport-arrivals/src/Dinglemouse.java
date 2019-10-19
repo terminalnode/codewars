@@ -1,3 +1,14 @@
+/* https://www.codewars.com/kata/57feb00f08d102352400026e
+*  Airport Arrivals/Departures #1
+*  This problem simulates the flaps on an airport arrival/departure display.
+*  The rotations are cumulative for each letter in the given string, so given
+*  the string "123" with rotations int[]{1,1,1} we will get "247" rather than "234"
+*  this is because when the first character rotates all characters after it rotates
+*  with it and so on.
+*
+*  Given an array of lines (String[]) and an array of rotor values (int[][]), predict
+*  what the resulting string will be.
+* */
 class Dinglemouse {
     //private static final String ALPHABET = Preloaded.ALPHABET;
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ?!@#&()|<>.:=-+*/0123456789";

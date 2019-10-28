@@ -10,10 +10,10 @@ module RangeBitCounting (rangeBitCount) where
 rangeBitCount :: Int -> Int -> Int
 rangeBitCount = (countOnes .) . enumFromTo
   where
-    countOnes = length . filter ((==) 1) . concatMap decToBin
+    countOnes = length . filter (1 ==) . concatMap decToBin
 
 decToBin :: Int -> [Int]
 decToBin n = map getRemainder getNumerators
   where
-    getRemainder x = x -2 * div x 2
+    getRemainder x = x - 2 * div x 2
     getNumerators = takeWhile (> 0) $ map (div n . (^) 2) [0 ..]

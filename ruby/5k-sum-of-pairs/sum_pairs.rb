@@ -7,11 +7,9 @@
 require 'set'
 def sum_pairs(numbers, target)
   seen = Set.new
-  negative = target < 0
 
   numbers.each do |n|
-    desired = negative ? n - target : target - n
-
+    desired = target - n
     return [desired, n] if seen.include? desired
     seen.add n
   end

@@ -5,6 +5,9 @@ function domainName(url){
     return url.replace(/https?:\/\//g, "")
               .replace("www.", "")
               .replace(/\..+/g, "")
+
+    // Alternative solution
+    // return url.replace(/(https?:\/\/)?(www\.)?/g, "").split(".")[0]
 }
 
 // ----------------------- //

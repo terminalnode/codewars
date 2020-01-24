@@ -39,7 +39,7 @@ function create_row(spaces, stars) {
 // ----------------------- //
 function test(input, expected) {
     result = diamond(input)
-    
+
     console.log("Testing with " + input + ".")
     if (result === expected) {
         console.log("Test passed!")

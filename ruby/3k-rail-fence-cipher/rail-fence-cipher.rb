@@ -14,23 +14,34 @@
 #
 # It's ruby on rails baby!
 
-def encode_rail_fence_cipher(str, num_rails)
-  rows = Array.new
-  num_rails.times { rows << String.new }
+def encode_rail_fence_cipher(str, rails)
+  rows = (1 .. rails).map { Array.new }
+  rail = get_rail str, rails
+  str = str.chars
 
-  way_down = Array 0 ... num_rails - 1
-  way_up   = Array 1 ..  num_rails - 1
-  rail = (way_down + way_up.reverse)
-
-  rail.cycle.each_with_index do |row, index|
-    letter = str[index]
-    letter.nil? ? break : rows[row] << letter
+  rail.each do |array|
+    rows[array] << str.shift
   end
 
   rows.join
 end
 
-def decode_rail_fence_cipher(str, num_rails)
+def decode_rail_fence_cipher(str, rails)
+  rows = (1 .. rails).map { Array.new }
+  rail = get_rail str, rails
+  str = str.chars
+
+  rail.sort.each do |array|
+    rows[array] << str.shift
+  end
+
+  rail.map { |row| rows[row].shift }.join
+end
+
+def get_rail(str, num_rails)
+  way_down = Array 0 ... num_rails - 1
+  way_up   = Array 1 ..  num_rails - 1
+  (way_down + way_up.reverse).cycle.take(str.length)
 end
 
 # ---------------------- #

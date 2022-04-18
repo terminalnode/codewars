@@ -6,8 +6,8 @@ import (
 
 func TestValidBraces(t *testing.T) {
 	var cases = []struct {
-		in  string
-		out bool
+		arg  string
+		want bool
 	}{
 		{"(){}[]", true},
 		{"([{}])", true},
@@ -19,9 +19,11 @@ func TestValidBraces(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		actual := ValidBraces(c.in)
-		if actual != c.out {
-			t.Errorf("ValidBraces(\"%s\") should not have returned %t", c.in, actual)
-		}
+		t.Run(c.arg, func(t *testing.T) {
+			actual := ValidBraces(c.arg)
+			if actual != c.want {
+				t.Errorf("ValidBraces(\"%s\") = %t, want %t", c.arg, actual, c.want)
+			}
+		})
 	}
 }

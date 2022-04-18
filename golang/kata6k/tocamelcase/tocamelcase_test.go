@@ -19,7 +19,7 @@ func TestToCamelCase(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := ToCamelCase(tt.arg); got != tt.want {
-				t.Errorf("ToCamelCase() = %v, want %v", got, tt.want)
+				t.Errorf("ToCamelCase(\"%s\") = %s, want %s", tt.arg, got, tt.want)
 			}
 		})
 	}

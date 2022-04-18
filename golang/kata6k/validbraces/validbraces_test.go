@@ -9,13 +9,13 @@ func TestValidBraces(t *testing.T) {
 		arg  string
 		want bool
 	}{
-		{"(){}[]", true},
-		{"([{}])", true},
-		{"(}", false},
-		{"[(])", false},
-		{"[({})](]", false},
-		{"(((", false},
-		{")))", false},
+		{arg: "(){}[]", want: true},
+		{arg: "([{}])", want: true},
+		{arg: "(}", want: false},
+		{arg: "[(])", want: false},
+		{arg: "[({})](]", want: false},
+		{arg: "(((", want: false},
+		{arg: ")))", want: false},
 	}
 
 	for _, c := range cases {

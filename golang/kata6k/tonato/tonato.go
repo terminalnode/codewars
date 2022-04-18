@@ -27,6 +27,5 @@ func ToNato(s string) string {
 		}
 	}
 
-	x := out.String()
-	return x[0 : len(x)-1]
+	return strings.TrimSpace(out.String())
 }
